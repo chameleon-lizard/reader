@@ -4,20 +4,24 @@
 #include <stdio.h>
 #include <fcntl.h>
 
+enum
+{
+    HEIGHT = 19,
+    WIDTH = 100
+};
+
 void
 print_page(int file, int page, char *filename)
 {
-    int width = 100;
-    int height = 19;
 
-    lseek(file, (width * height) * page, SEEK_SET);
+    lseek(file, (WIDTH * HEIGHT) * page, SEEK_SET);
 
     printf("%s\n", filename);
 
-    char *current_string = (char *) calloc(width + 1, sizeof(*current_string));
+    char *current_string = (char *) calloc(WIDTH + 1, sizeof(*current_string));
 
-    for (int i = 0; i < height; i++) {
-        read(file, current_string, width);
+    for (int i = 0; i < HEIGHT; i++) {
+        read(file, current_string, WIDTH);
         printf("%s\n", current_string);
     }
 

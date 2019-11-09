@@ -1,2 +1,2 @@
-# reader
-A simple C reader
+# Chameleon reader
+A simple text file reader, written in C.
