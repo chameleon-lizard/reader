@@ -1,13 +1,11 @@
-#include <sys/ioctl.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
 
 enum
 {
-    HEIGHT = 19,
-    WIDTH = 100
+    HEIGHT = 24,
+    WIDTH = 80
 };
 
 void
@@ -45,15 +43,14 @@ update(int file, char *filename)
                 break;
             case 'l':
                 page++;
-            break;
-                default:
-            break;
+                break;
+            default:
+                break;
         }
 
         button = getchar();
         system("clear");
         print_page(file, page, filename);
-
     }
     return 1;
 }
@@ -63,7 +60,7 @@ main(int argc, char *argv[])
 {
     system("clear");
     if (argc < 2) {
-        printf("No file provided!");
+        printf("No file provided!\n");
         return 0;
     }
 
